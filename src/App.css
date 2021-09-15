@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+#currencies {
+  margin: 20px;
+  background-color: lightgray;
+}
+
+#currencies th {
+  padding: 5px;
+}
+
+#currencies td {
+  background-color: white;
+}
