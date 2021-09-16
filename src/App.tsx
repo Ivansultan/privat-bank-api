@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 type CurrencyRate = {
   base_ccy: string;
@@ -25,33 +25,34 @@ function App() {
       setCurrencies(data);
     }
     fetchAPI();
-  }, [currencies]);
- 
+  }, []);
+
   const today = new Date();
-  const todayStr = today.getDate() + '-' + (today.getMonth()+1) + '-'+today.getFullYear();
+  const todayStr =
+    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
 
   return (
     <div className="App">
-     <h1>Курс валют для UAH на {todayStr}</h1>
-     <table id="currencies">
-       <thead>
-         <tr>
-           <th>Код валюты</th>
-           <th>Курс продажи</th>
-           <th>Курс покупки</th>
-         </tr>
-       </thead>
-       <tbody>
-         {currencies.map(item => 
-           <tr>
-             <td>{item.ccy}</td>
-             <td>{item.sale}</td>
-             <td>{item.buy}</td>
-         </tr>
-         )}
-       </tbody>
-     </table>
-     </div>
+      <h1>Курс валют для UAH на {todayStr}</h1>
+      <table id="currencies">
+        <thead>
+          <tr>
+            <th>Код валюты</th>
+            <th>Курс продажи</th>
+            <th>Курс покупки</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currencies.map((item, index) => (
+            <tr key={index}>
+              <td>{item.ccy}</td>
+              <td>{item.sale}</td>
+              <td>{item.buy}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
